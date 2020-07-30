@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Load d3.js and plugin -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+    <!--script src="https://d3js.org/d3-selection-multi.v1.min.js"></script-->
+
+    <title>Covid-19 Narrative Visualization</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+      .path { display: none; }
+      .line {
+          fill: none;
+          stroke: rgb(207, 44, 44);
+          stroke-width: 2;
+      }
+      /*
+      
+      .rectangle {
+        fill: steelblue;
+      }
+      .rectangle:hover {
+        fill: orange;
+      }
+      */
+      .axis {
+        font: 10px sans-serif;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+      .bar {
+      fill: steelblue;
+      }
+
+      .bar:hover {
+        fill: brown;
+      }
+
+    /*sliders*/
+    .ticks {
+      font-size: 11px;
+    }
+    .label{
+      font-size: 12px;
+    }
+    
+    .track,
+    .track-inset,
+    .track-overlay {
+      stroke-linecap: round;
+    }
+
+    .track {
+      stroke: #000;
+      stroke-opacity: 0.3;
+      stroke-width: 6px;
+    }
+
+    .track-inset {
+      stroke: #ddd;
+      stroke-width: 3px;
+    }
+
+    .track-overlay {
+      pointer-events: stroke;
+      stroke-width: 30px;
+      stroke: transparent;
+      /*cursor: crosshair;*/
+    }
+
+    .handle {
+      fill: #fff;
+      stroke: #000;
+      stroke-opacity: 0.5;
+      stroke-width: 1.25px;
+    }
+    .filter-3 {
+      visibility: hidden;
+    }
+
+    </style>
+    <!-- Custom styles for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="container">
+    <header class="blog-header py-3">
+        <div class="text-center">
+          <a class="blog-header-logo text-dark" href="#">Covid-19 Narrative Visualization</a>
+        </div>
+    </header>
+  
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <a class="p-2 text-muted" href="index.html">Stringency Index Map</a>
+        <a class="p-2 text-muted" href="scene-2.html">Key Countries Data</a>
+        <a class="p-2 text-muted" href="scene-3.html">Australia Data</a>
+        <a class="p-2 text-muted" href="scene-3-Australia.html">India Data</a>
+        <a class="p-2 text-muted" href="scene-3-India.html">Japan Data</a>
+        <a class="p-2 text-muted" href="scene-3-Japan.html">Explore Countries Data</a>
+      </nav>
+    </div>
+
+  </div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="blog-main p-md-4">
+
+
+      <div class="blog-post">
+        <h3>Australia: Stringency Index and Covid-19 New Cases</h3>
+        <p>First, we will observe data from Australia. From the data we observe that around mid of March, new COVID-19 increasing sharply, followed 
+          by drastic increase in stringency index. By April, we observe that new cases has decreased. Australia then gradually lowered down the lockdown
+        measures as indicated by gradual decrease in stringency index. However on end of June, there are increase in COVID-19 cases observed. </p>
+
+        <!-- Scene 3 Visualisation Script-->
+        <select class="filter-3" id="filter-3">
+          <option value="Australia"></option>
+        </select>
+        <svg id="scene-3" width="830" height="800"></svg>
+        <script src="scene-3.js"></script>
+        <script src="scripts/annotations-aus.js"></script>
+
+          <p>News Resources:</p>
+          <ul>
+            <li><em>ABC News Australia</em>: <a href="https://www.abc.net.au/news/2020-07-10/coronavirus-victoria-what-australia-learned-about-lockdowns/12429484">How does Melbourne's coronavirus lockdown compare with overseas responses to community transmission? </a></li>
+            <li><em>Vox</em>: <a href="https://www.vox.com/2020/7/10/21317918/australia-melbourne-victoria-coronavirus-covid-19-lockdown">Australia was a coronavirus success story. Now, an outbreak is prompting new lockdowns.</a></li>
+          </ul>
+      </div><!-- /.blog-post -->
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="scene-2.html">Previous Scene: Key Countries Data</a>
+        <a class="btn btn-outline-primary" href="scene-3-India.html">Next Scene: India Data</a>
+      </nav>
+
+    </div><!-- /.blog-main -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>For feedbacks and questions, please contact the author at ahutomo2[at]illinois.edu</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+</body>
+</html>
